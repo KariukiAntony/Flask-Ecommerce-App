@@ -1,0 +1,45 @@
+{% extends "base.html"%}
+{% block head%}
+{% endblock%}
+{% block header %}
+<div class="jumbotron p-3">
+  <div class="p-3 mb-2 bg-secondary text-white">
+    <h2 align="center">
+      SIGN-UP TO CREATE AN ACCOUNT
+    </h2>
+  </div>
+</div>
+{%endblock%}
+{% block body %}
+<div class="p-3 mb-2 bg-info text-white">
+    <form  action="" method="post" novalidate>
+        <div class="form-group">
+            <h4>Email address</h4>
+            <input type="email" class="form-control" name="email" placeholder="enter your email here">
+        </div>
+        <div class="form-group">
+            <h4>Phone Number</h4>
+            <input type="number" class="form-control" name="phone" placeholder="enter your phone number.">
+        </div>
+        <div class="form-group">
+            <h4>Username</h4>
+            <input type="text" class="form-control" name="username" placeholder="enter your username">
+        </div>
+        <div class="form-group">
+            <h4>Password</h4>
+            <input type="password" class="form-control" name="password" placeholder="set a strong password">
+        </div>
+        <div class="form-group">
+            <h4>Confirm Password</h4>
+            <input type="password" class="form-control" name="confirm" placeholder="confirm your password">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-secondary" ><h4>SIGN-UP</h4></button>
+        </div>
+
+    </form>
+    <div class="modal-footer">
+        <h3><a class="btn btn-success" href="{{url_for('auth.login')}}">Already have an account? Log in</a></h3>
+    </div>
+</div>
+{% endblock%}

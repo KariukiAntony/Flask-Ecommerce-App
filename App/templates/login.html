@@ -1,0 +1,34 @@
+{% extends "base.html"%}
+{% block head%}
+{% endblock%}
+{% block header %}
+  <br>
+<div class="">
+  <div class="alert alert-success">
+    <h2 align="center">
+      LOGIN INTO YOUR ACCOUNT
+    </h2>
+  </div>
+</div>
+{% endblock%}
+{% block body%}
+<br>
+<div class="p-3 mb-2 bg-secondary text-white">
+    <form action="" method="post" novalidate>
+        <div class="form-group">
+            <h4>Email address</h4>
+            <input type="email" class="form-control" name="email" placeholder="enter your email address">
+        </div>
+        <div class="form-group">
+            <h4>Password</h4>
+            <input type="password" class="form-control" name="password" placeholder="enter your password">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success" ><h4>LOGIN</h4></button>
+        </div>
+    </form>
+    <div class="modal-footer">
+        <h3><a class="btn btn-primary" href="{{url_for('views.sign_up')}}">Do not have an account? Sign-up</a></h3>
+    </div>
+</div>
+{% endblock%}

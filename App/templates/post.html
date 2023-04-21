@@ -1,0 +1,30 @@
+{% extends "base.html"%}
+{% block head%}
+{% endblock%}
+{% block header %}
+  <br>
+<div class="">
+  <div class="alert alert-success">
+    <h2 align="center">
+      MAKE AN ORDER
+    </h2>
+  </div>
+</div>
+{% endblock%}
+{% block body%}
+<br>
+<form action="" method="post">
+  <textarea class="form-control form-control-lg" name="post" rows="3"></textarea>
+  <br>
+  <div align="center">
+    <h4><button type="submit" class="btn btn-primary">POST</button></h4>
+  </div>
+  <br>
+</form>
+<br>
+<nav class="navbar navbar-light bg-light">
+    <a href="/home"><span class="btn btn-success"> View All Products</span></a>
+    <a class="btn btn-success" href="{{url_for('auth.view_post')}}">Backorders</a>
+    <a class="btn btn-danger btn-xs" href="/">Exit</a>
+</nav>
+{% endblock%}

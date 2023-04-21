@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block head%}
+{% endblock%}
+{% block body%}
+<br>
+		<nav class="navbar navbar-light bg-light">
+			<a href="{{url_for('views.home')}}"><span class="btn btn-outline-success my-2 my-sm-0">View all Products</span></a>
+			<a class="btn btn-primary" href="{{url_for('auth.view_post')}}">Backorders</a>
+			<a class="btn btn-success" href="/logout">Logout</a>
+		</nav>
+		<div class="row" id="index1">
+			<div class="col-sm-6">
+				<div class="card">
+      				<div class="card-body">
+        				<h5 class="card-title"><b>Do you want to Add a new Product?</b></h5>
+        				<h5 class="card-text" align="center">success usually comes to those who are busy looking for it.</h5>
+						<h5 align="center">
+							<button class="btn btn-primary" data-toggle="modal" data-target="#modalfirst">Click here</button>
+						</h5>
+      				</div>
+    			</div>
+  			</div>
+	  		<div class="">
+	    		<div class="card">
+	      			<div class="card-body">
+						<h5 class="card-title"><b>Do you want to make an order?</b></h5>
+	        			<h5 class="card-text" align="center">It is better to fall in originality than to succeed in imitation.</h5><br>
+						<h5 align="center">
+							<a href="{{url_for('views.create_post')}}">
+								<button class="btn btn-primary">Click here</button>
+							</a>
+						</h5>
+	      			</div>
+	    		</div>
+	  		</div>
+		</div>
+<div class="modal fade" id="modalfirst" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Add A New Product</h4>
+			     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+				</div>
+				<div class="modal-body">
+					<form action="#" method="post" enctype="multipart/form-data">
+						<div class="form-group">
+							<label>Product Name:</label>
+							<input type="text" class="form-control" name="product_name" placeholder="Enter the name of the product" required="1">
+						</div>
+						<div class="form-group">
+							<label>Description:</label>
+							<input type="text" class="form-control" name="description" placeholder="A brief description about the product" required="1">
+						</div>
+						<div class="form-group">
+							<label>Selling Price</label>
+							<input type="number" class="form-control" name="price" placeholder="Enter product's selling price" required="1">
+						</div>
+						<div class="form-group">
+							<label>Product Image</label>
+							<input type="file" class="form-control" name="image" placeholder="Product Image" required="1">
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-success">Add Product</button>
+						</div>
+					</form>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div>
+	<div class="row" id="edit" >
+    {% for product in products %}
+    <div class="card needspace mt-3" style="width: 18rem;margin-left: 5%;margin-top: 5%;background-color: lightblue;">
+        <img src="{{ url_for('static', filename='images/' + product.filename) }}" class="card-img-top" alt="...">
+        <div class="card-body">
+			<h5 class="card-title"><b>{{product.product_name}}</b></h5>
+            <p class="card-text">{{product.description}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{product.price}}</li>
+            <li class="list-group-item">{{product.date_created}}</li>
+            <li class="list-group-item">{{product.comments}}</li>
+        </ul>
+		<div class="d-flex justify-content-between align-items-center">
+			<div class="card-body">
+				<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{product.product_id}}">EDIT</button>
+			</div>
+			<div class="card-body">
+				<a href="/delete_product/{{product.product_id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure to delete this product?')">DELETE</a>
+			</div>
+		</div>
+    </div>
+<div  id="modaledit{{product.product_id}}" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Edit This Product</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+				<div class="modal-body">
+					<form action="/editing/{{product.product_id}}" method="post">
+						<div class="form-group">
+							<label>Product Name:</label>
+							<input type="text" class="form-control" name="new_name" value="{{product.product_name}}">
+						</div>
+						<div class="form-group">
+							<label>Description:</label>
+							<input type="text" class="form-control" name="description" value="{{product.description}}">
+						</div>
+						<div class="form-group">
+							<label>Price</label>
+							<input type="number" class="form-control" name="price" value="{{product.price}}">
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-success">Commit Changes</button>
+						</div>
+					</form>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+    {% endfor %}
+</div>
+</div>
+{% endblock%}

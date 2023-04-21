@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block head%}
+{% endblock%}
+{% block body%}
+<br>
+<nav class="navbar navbar-light bg-light">
+    <a href="/upload"><span class="btn btn-success">My Products</span></a>
+    <a class="btn btn-info" href="{{url_for('auth.view_post')}}">Backorders</a>
+    <a class="btn btn-primary" href="{{url_for('views.create_post')}}">Make an order</a>
+</nav>
+<div class="row">
+    {% for product in products %}
+    <div class="card needspace mt-5" style="width: 18rem;margin-left: 5%;margin-top: 5%;background-color: lightblue;">
+        <img src="{{url_for('static', filename='images/'+product.filename)}}" class="card-img-top" alt="...">
+        <div class="card-body">
+			<h5 class="card-title"><b>Product Name: </b>{{product.product_name}}</h5>
+            <p class="card-text"><b>Description:</b>{{product.description}}</p>
+        </div>
+         <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Price:</b>{{product.price}}</li>
+            <li class="list-group-item"><b>Posted on:</b>{{product.date_created}}</li>
+            <li class="list-group-item"><b>Product owner: </b>{{product.trader.username}}, {{product.trader.phone_number}}</li>
+        </ul>
+        <div align="center">
+            <a href="/"><button type="button" class="btn btn-warning" onclick="return confirm('Are you sure to purchase this product?')">Purchase </button></a>
+        </div>
+    </div>
+    {% endfor%}
+</div>
+{% endblock%}

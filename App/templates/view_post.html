@@ -1,0 +1,40 @@
+{% extends "base.html"%}
+{% block head%}
+{% endblock%}
+{% block header %}
+  <br>
+<div class="">
+  <div class="alert alert-success">
+    <h2 align="center">
+      BACKORDERS
+    </h2>
+  </div>
+</div>
+{% endblock%}
+{% block body%}
+<br>
+<div id="posts">
+  {% for post in posts %}
+  <div class="card border-dark">
+    <div class="card-header">
+      <nav class="navbar navbar-light bg-light">
+        <h4 style="color:blue;">{{post.trader.username}}</h4>
+        <h4 style="color:blue;">{{post.phone_number}}</h4>
+        <h4 style="color:blue;">{{post.date_created}}r</h4>
+        {% if trader.id == post.post_author%}
+            <a href="/delete_post/{{post.post_id}}">
+              <button type="button" class="btn btn-danger btn-xs" onclick="return confirm ('Are you sure to delete this order? ')">Delete</button>
+            </a>
+        {% endif%}
+      </nav>
+    </div>
+    <div class="card-body">
+      <h3>{{post.post}}</h3>
+    </div>
+
+  </div>
+  <br>
+  {% endfor%}
+</div>
+{% endblock%}
+<h1 style="color:orange;">yooh bro</h1>

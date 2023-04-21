@@ -1,0 +1,7 @@
+venv
+__pycache__/
+instance/
+.idea/.gitignore
+new file:   .idea/Ecommerce.iml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/inspectionProfiles/profiles_settings.xml
