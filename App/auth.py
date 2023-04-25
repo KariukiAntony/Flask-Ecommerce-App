@@ -19,7 +19,7 @@ def login():
             if trader:
                 if check_password_hash(trader.password, password):
                     login_user(trader, remember=True)
-                    return redirect(url_for("upload.upload"))
+                    return redirect(url_for("views.home"))
                 else:
                     flash("Incorrect password,please try again", category="error")
             else:

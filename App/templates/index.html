@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Web App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script >
+        $(document).ready(function(){
+            $("#icon").click(function(){
+                $("ul").toggleClass("show");
+                $(".info").fadeToggle();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <nav class="start">
+            <label class="logo">Adve<span></span>rts</label>
+            <label id="icon">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/home">Products</a></li>
+                <li><a href="/upload">upload</a></li>
+                <li><a href="/upload">my products</a></li>
+                <li><a href="/view_post">View orders</a></li>
+            </ul>
+        </nav>
+        <div class="info">
+            <h2>Success is not final; failure is not fatal: It is the courage to continue that counts.</h2>
+                <!-- <h2>If there is no struggle, there is no progress.</h2> -->
+            <p>Lorem ipsum dolor sit amet consectetur.<br> Minus dignissimo reprehenderit,<br> nostrum veritatis eum!</p>
+
+           <a href="/login"><button class="button"><span></span>Login ...</button></a>
+            <a href="/sign-up"><button class="button"><span></span>Signup ...</button></a>
+        </div>
+    </div>
+    
+</body>
+</html>

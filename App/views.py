@@ -8,6 +8,11 @@ from flask_login import current_user, login_required, logout_user
 views = Blueprint("views", __name__)
 
 
+@views.route("/")
+def index():
+    return render_template("index.html")
+
+
 @views.route("/sign-up", methods=["GET", "POST"])
 def sign_up():
     if request.method == "POST":

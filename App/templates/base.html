@@ -20,11 +20,11 @@
             {% if trader.is_authenticated%}
             <a class="nav-item nav-link" id="home" href="{{url_for('views.home')}}"><button class="btn btn-outline-success my-2 my-sm-0">Home</button></a>
             <a class="nav-item nav-link" id="logout" href="/logout"><button class="btn btn-outline-success my-2 my-sm-0">Logout</button></a>
-            <a class="nav-item nav-link" id="exit0" href="/"><button class="btn btn-danger btn-xs">Exit</button></a>
+            <a class="nav-item nav-link" id="exit0" href="/"><button class="btn btn-danger btn-xs" onclick="return confirm ('Are you sure to exit? ')">Exit</button></a>
             {% else%}
             <a class="nav-item nav-link" id="login" href="/login"><button class="btn btn-outline-success my-2 my-sm-0">Login</button></a>
             <a class="nav-item nav-link" id="sign-up" href='{{ url_for("views.sign_up")}}'><button class="btn btn-outline-success my-2 my-sm-0">Signup</button></a>
-            <a class="nav-item nav-link" id="exit" href='/'><button class="btn btn-danger btn-xs">Exit</button></a>
+            <a class="nav-item nav-link" id="exit" href='/'><button class="btn btn-danger btn-xs" onclick="return confirm ('Are you sure to exit? ')">Exit</button></a>
             {% endif%}
         </div>
     </div>
