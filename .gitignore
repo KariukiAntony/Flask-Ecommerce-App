@@ -7,4 +7,6 @@ new file:   .idea/Ecommerce.iml
 .idea/inspectionProfiles/profiles_settings.xml
 .idea/
 App/static/images/
+App/templates/index.html
+App/static/index.css
 .env
