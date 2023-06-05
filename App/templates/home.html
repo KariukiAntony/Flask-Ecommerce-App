@@ -21,9 +21,11 @@
             <li class="list-group-item"><b>Posted on:</b>{{product.date_created}}</li>
             <li class="list-group-item"><b>Product owner: </b>{{product.trader.username}}, {{product.trader.phone_number}}</li>
         </ul>
-        <div align="center">
-            <a href="/"><button type="button" class="btn btn-warning" onclick="return confirm('Are you sure to purchase this product?')">Purchase </button></a>
-        </div>
+        {% if trader.id != product.product_owner %}
+            <div align="center">
+                <a href="/sell_product/{{product.product_id}}/{{product.trader.username}}/{{trader.username}}/{{trader.phone_number}}"><button type="button" class="btn btn-warning" onclick="return confirm('Are you sure to purchase this product?')">Purchase </button></a>
+            </div>
+        {% endif %}
     </div>
     {% endfor%}
 </div>

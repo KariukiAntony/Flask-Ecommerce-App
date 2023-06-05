@@ -7,3 +7,4 @@ new file:   .idea/Ecommerce.iml
 .idea/inspectionProfiles/profiles_settings.xml
 .idea/
 App/static/images/
+.env

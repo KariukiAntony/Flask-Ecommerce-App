@@ -41,3 +41,15 @@ def delete_product(product_id):
         return redirect(url_for("upload.upload"))
     else:
         flash("The product does not exist !!", category="error")
+
+@edit.route("/sell_product/<product_id>/<product_owner>/<buyer_username>/<buyer_phonenumber>")
+@login_required
+def  sell_product(product_id, product_owner, buyer_username, buyer_phonenumber):
+    product = Product.query.filter_by(product_id=product_id).first()
+    if product:
+        print("buyer_username"+buyer_username)
+        print("buyer_phonenumber"+buyer_phonenumber)
+        flash(f"Wait  for a while as we contact {product_owner}", category="success")
+        return redirect(url_for("views.home"))
+    else:
+        flash("The product does not exist", category="error")
